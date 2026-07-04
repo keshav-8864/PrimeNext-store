@@ -4,6 +4,7 @@ import "dotenv/config"
 import {clerkMiddleware} from "@clerk/express"
 import { clerkWebhookHandler } from './webhooks/clerk';
 import { getEnv } from './lib/env';
+import keepAliveCron from "./lib/cron";
 
 import fs from "node:fs";
 import path from "node:path";
@@ -25,6 +26,9 @@ app.post("/webhooks/clerk",rowJson,(req,res)=>{
 app.use(express.json())
 app.use(cors())
 app.use(clerkMiddleware())
+app.get("/health",(_req,res)=>{
+    res.status(200).json({ok:true})
+})
 
 
 const publicDir = path.join(process.cwd(), "public");
@@ -47,6 +51,9 @@ if (fs.existsSync(publicDir)) {
 }
 
 
-app.listen(env.PORT,()=>{
-    console.log("listening on port " ,env.PORT)
-})
+app.listen(env.PORT, () => {
+  console.log("Listening on port:", env.PORT);
+  if (env.NODE_ENV === "production") {
+    keepAliveCron.start();
+  }
+});
