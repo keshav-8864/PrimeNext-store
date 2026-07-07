@@ -15,6 +15,7 @@ import meRouter from "./routes/meRouter";
 import productRouter from "./routes/productRouter";
 import streamRouter from "./routes/streamRouter";
 import adminRouter from "./routes/adminRouter";
+import orderRouter from "./routes/orderRouter";
 
 import checkoutRouter from "./routes/checkoutRouter";
 
@@ -54,6 +55,9 @@ app.use("/api/stream",streamRouter)
 
 app.use("/api/checkout", checkoutRouter)
 app.use("/api/admin", adminRouter)
+app.use("/api/orders", orderRouter);
+
+
 
 
 
