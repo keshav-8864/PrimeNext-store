@@ -75,12 +75,13 @@ export async function createCheckout(req: Request, res: Response, next: NextFunc
       });
     }
 
-    if (totalCents < 60) {
-      res.status(400).json({
-        error: "Total below Polar minimum (e.g. INR requires at least 60 rupees)",
-      });
-      return;
-    }
+   
+if (totalCents < 6000) {
+  res.status(400).json({
+    error: "Total below Polar minimum (INR requires at least 60 rupees)",
+  });
+  return;
+}
 
     const [session] = await db
       .insert(checkoutSessions)
