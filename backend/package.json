@@ -16,7 +16,7 @@
   "type": "commonjs",
   "dependencies": {
     "@clerk/backend": "^3.2.8",
-    "@clerk/express": "^2.1.0",
+    "@clerk/express": "^2.1.40",
     "@imagekit/nodejs": "^7.4.0",
     "@sentry/node": "^10.48.0",
     "@sentry/profiling-node": "^10.48.0",

@@ -35,9 +35,7 @@ export default function useCartPage() {
     return sum + p.priceCents * line.quantity;
   }, 0);
 
-  
   async function checkout() {
-
     setCheckoutLoading(true);
 
     const body = {

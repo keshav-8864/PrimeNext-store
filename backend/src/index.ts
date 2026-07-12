@@ -40,7 +40,8 @@ app.post("/webhooks/polar",rowJson,(req,res)=>{
 
 app.use(express.json())
 app.use(cors())
-app.use(clerkMiddleware())
+//app.use(clerkMiddleware())
+app.use(clerkMiddleware({ clockSkewInMs: 5 * 60 * 1000 }))
 app.use(sentryClerkUserMiddleware);
 
 
