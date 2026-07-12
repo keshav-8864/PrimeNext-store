@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 // persist will save the cart items to localStorage
+
 export const useCart = create(
   persist(
     (set, get) => ({

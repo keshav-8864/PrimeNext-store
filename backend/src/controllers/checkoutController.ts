@@ -75,13 +75,12 @@ export async function createCheckout(req: Request, res: Response, next: NextFunc
       });
     }
 
-   
-if (totalCents < 6000) {
-  res.status(400).json({
-    error: "Total below Polar minimum (INR requires at least 60 rupees)",
-  });
-  return;
-}
+    if (totalCents < 10) {
+      res.status(400).json({
+        error: "Total below Polar minimum (e.g. USD requires at least 10 cents)",
+      });
+      return;
+    }
 
     const [session] = await db
       .insert(checkoutSessions)
@@ -89,7 +88,7 @@ if (totalCents < 6000) {
         userId: localUser.id,
         lines,
         totalCents,
-        currency: "INR",
+        currency: "usd",
       })
       .returning();
 
@@ -102,7 +101,7 @@ if (totalCents < 6000) {
         [env.POLAR_CHECKOUT_PRODUCT_ID]: [
           {
             amount_type: "fixed",
-            price_currency: "INR",
+            price_currency: "usd",
             price_amount: totalCents,
           },
         ],
