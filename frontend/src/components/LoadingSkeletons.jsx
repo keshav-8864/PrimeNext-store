@@ -159,7 +159,7 @@ export function OrderChatPanelSkeleton() {
         </div>
       </div>
       
-      <div className="flex h-[560px] flex-col overflow-hidden rounded-box border border-base-300 bg-base-100">
+      <div className="flex h-140 flex-col overflow-hidden rounded-box border border-base-300 bg-base-100">
         <div className="border-b border-base-300 p-4">
           <div className="skeleton h-8 w-56" />
         </div>
