@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 font-semibold text-base-content">
               <TruckIcon className="size-8 text-primary" aria-hidden />
-              PrimeNext Supply
+               PrimeNext Supply
             </div>
             <p className="mt-3 text-sm leading-relaxed text-base-content/65">
               Curated hardware and workspace tools. Paid orders include priority support; chat with
