@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className="mt-10 space-y-4 border-t border-base-300 pt-6">
           <p className="text-center text-xs text-base-content/50">
-            © {new Date().getFullYear()} Northwind Supply · All prices in USD
+            © {new Date().getFullYear()} PrimeNext Supply · All prices in USD
           </p>
         </div>
       </div>
